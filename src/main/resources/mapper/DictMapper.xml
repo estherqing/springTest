@@ -8,8 +8,7 @@
     <result column="dict_type" property="dictType" jdbcType="VARCHAR" />
     <result column="dict_desc" property="dictDesc" jdbcType="VARCHAR" />
     <result column="dict_sort" property="dictSort" jdbcType="SMALLINT" />
-  </resultMap>
-  <resultMap type="com.hsmdata.springTest." id=""></resultMap>
+  </resultMap>  
   <sql id="Base_Column_List" >
     id, dict_value, dict_label, dict_type, dict_desc, dict_sort
   </sql> 

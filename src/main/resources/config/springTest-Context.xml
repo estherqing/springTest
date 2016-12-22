@@ -75,14 +75,14 @@
         </property>
         <property name="mapperLocations">
             <list>
-                <value>classpath:/mapper/**/*.xml</value>
+                <value>classpath:/mapper/*.xml</value>
             </list>
         </property>
     </bean>
     <!-- 配置扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描dal这个包以及它的子包下的所有映射接口类 -->
-        <property name="basePackage" value="com.hsmdata.priceless" />
+        <property name="basePackage" value="com.hsmdata.springTest" />
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
         
     </bean>

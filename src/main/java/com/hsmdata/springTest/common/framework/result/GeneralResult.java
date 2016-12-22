@@ -1,7 +1,5 @@
 package com.hsmdata.springTest.common.framework.result;
-
  
-
 import java.io.Serializable;
 
 public class GeneralResult<T> implements Serializable {

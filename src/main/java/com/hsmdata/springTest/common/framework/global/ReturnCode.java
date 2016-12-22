@@ -3,19 +3,19 @@ package com.hsmdata.springTest.common.framework.global;
  
 
 /**
- * 返回值enum
+ * 杩斿洖鍊糴num
  * 
  * @author chenyj
  * @version 2016-09-18
  */
 public enum ReturnCode {
-	NORMAL("0", "操作成功"),
-	INTERFACE_ERROR("1","接口有误"),
-	ACTION_ERROR("2","操作失败"),
-	AUTHORITY_ERROR("3","没有访问权限"),
-	SYSTEM_ERROR("4","系统错误"),
-	TIMEOUT_ERROR("5","处理超时"),
-	PARAM_ERROR("6","输入参数有误");
+	NORMAL("0", "鎿嶄綔鎴愬姛"),
+	INTERFACE_ERROR("1","鎺ュ彛鏈夎"),
+	ACTION_ERROR("2","鎿嶄綔澶辫触"),
+	AUTHORITY_ERROR("3","娌℃湁璁块棶鏉冮檺"),
+	SYSTEM_ERROR("4","绯荤粺閿欒"),
+	TIMEOUT_ERROR("5","澶勭悊瓒呮椂"),
+	PARAM_ERROR("6","杈撳叆鍙傛暟鏈夎");
 	
 
 	private String code;

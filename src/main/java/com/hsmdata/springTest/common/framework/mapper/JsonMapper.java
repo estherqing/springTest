@@ -1,6 +1,4 @@
-package com.hsmdata.springTest.common.framework.mapper;
-
- 
+package com.hsmdata.springTest.common.framework.mapper; 
 
 import java.io.IOException;
 import java.util.TimeZone;
@@ -23,8 +21,8 @@ import com.fasterxml.jackson.databind.util.JSONPObject;
 import com.fasterxml.jackson.module.jaxb.JaxbAnnotationModule;
 
 /**
- * ¼òµ¥·â×°Jackson£¬ÊµÏÖJSON String<->Java ObjectµÄMapper.
- * ·â×°²»Í¬µÄÊä³ö·ç¸ñ, Ê¹ÓÃ²»Í¬µÄbuilderº¯Êı´´½¨ÊµÀı.
+ * ç®€å•å°è£…Jacksonï¼Œå®ç°JSON String<->Java Objectçš„Mapper.
+ * å°è£…ä¸åŒçš„è¾“å‡ºé£æ ¼, ä½¿ç”¨ä¸åŒçš„builderå‡½æ•°åˆ›å»ºå®ä¾‹.
  * @author chenyj
  * @version 2016-09-02
  */
@@ -41,15 +39,15 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	public JsonMapper(Include include) {
-		// ÉèÖÃÊä³öÊ±°üº¬ÊôĞÔµÄ·ç¸ñ
+		// è®¾ç½®è¾“å‡ºæ—¶åŒ…å«å±æ€§çš„é£æ ¼
 		if (include != null) {
 			this.setSerializationInclusion(include);
 		}
-		// ÔÊĞíµ¥ÒıºÅ¡¢ÔÊĞí²»´øÒıºÅµÄ×Ö¶ÎÃû³Æ
+		// å…è®¸å•å¼•å·ã€å…è®¸ä¸å¸¦å¼•å·çš„å­—æ®µåç§°
 		this.enableSimple();
-		// ÉèÖÃÊäÈëÊ±ºöÂÔÔÚJSON×Ö·û´®ÖĞ´æÔÚµ«Java¶ÔÏóÊµ¼ÊÃ»ÓĞµÄÊôĞÔ
+		// è®¾ç½®è¾“å…¥æ—¶å¿½ç•¥åœ¨JSONå­—ç¬¦ä¸²ä¸­å­˜åœ¨ä½†Javaå¯¹è±¡å®é™…æ²¡æœ‰çš„å±æ€§
 		this.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
-        // ¿ÕÖµ´¦ÀíÎª¿Õ´®
+        // ç©ºå€¼å¤„ç†ä¸ºç©ºä¸²
 		this.getSerializerProvider().setNullValueSerializer(new JsonSerializer<Object>(){
 			@Override
 			public void serialize(Object value, JsonGenerator jgen,
@@ -58,7 +56,7 @@ public class JsonMapper extends ObjectMapper {
 				jgen.writeString("");
 			}
         });
-		// ½øĞĞHTML½âÂë¡£
+		// è¿›è¡ŒHTMLè§£ç ã€‚
 		this.registerModule(new SimpleModule().addSerializer(String.class, new JsonSerializer<String>(){
 			@Override
 			public void serialize(String value, JsonGenerator jgen,
@@ -67,12 +65,12 @@ public class JsonMapper extends ObjectMapper {
 				jgen.writeString(StringEscapeUtils.unescapeHtml4(value));
 			}
         }));
-		// ÉèÖÃÊ±Çø
+		// è®¾ç½®æ—¶åŒº
 		this.setTimeZone(TimeZone.getDefault());//getTimeZone("GMT+8:00")
 	}
 
 	/**
-	 * ´´½¨Ö»Êä³ö·ÇNullÇÒ·ÇEmpty(ÈçList.isEmpty)µÄÊôĞÔµ½Json×Ö·û´®µÄMapper,½¨ÒéÔÚÍâ²¿½Ó¿ÚÖĞÊ¹ÓÃ.
+	 * åˆ›å»ºåªè¾“å‡ºéNullä¸”éEmpty(å¦‚List.isEmpty)çš„å±æ€§åˆ°Jsonå­—ç¬¦ä¸²çš„Mapper,å»ºè®®åœ¨å¤–éƒ¨æ¥å£ä¸­ä½¿ç”¨.
 	 */
 	public static JsonMapper getInstance() {
 		if (mapper == null){
@@ -82,7 +80,7 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * ´´½¨Ö»Êä³ö³õÊ¼Öµ±»¸Ä±äµÄÊôĞÔµ½Json×Ö·û´®µÄMapper, ×î½ÚÔ¼µÄ´æ´¢·½Ê½£¬½¨ÒéÔÚÄÚ²¿½Ó¿ÚÖĞÊ¹ÓÃ¡£
+	 * åˆ›å»ºåªè¾“å‡ºåˆå§‹å€¼è¢«æ”¹å˜çš„å±æ€§åˆ°Jsonå­—ç¬¦ä¸²çš„Mapper, æœ€èŠ‚çº¦çš„å­˜å‚¨æ–¹å¼ï¼Œå»ºè®®åœ¨å†…éƒ¨æ¥å£ä¸­ä½¿ç”¨ã€‚
 	 */
 	public static JsonMapper nonDefaultMapper() {
 		if (mapper == null){
@@ -92,9 +90,9 @@ public class JsonMapper extends ObjectMapper {
 	}
 	
 	/**
-	 * Object¿ÉÒÔÊÇPOJO£¬Ò²¿ÉÒÔÊÇCollection»òÊı×é¡£
-	 * Èç¹û¶ÔÏóÎªNull, ·µ»Ø"null".
-	 * Èç¹û¼¯ºÏÎª¿Õ¼¯ºÏ, ·µ»Ø"[]".
+	 * Objectå¯ä»¥æ˜¯POJOï¼Œä¹Ÿå¯ä»¥æ˜¯Collectionæˆ–æ•°ç»„ã€‚
+	 * å¦‚æœå¯¹è±¡ä¸ºNull, è¿”å›"null".
+	 * å¦‚æœé›†åˆä¸ºç©ºé›†åˆ, è¿”å›"[]".
 	 */
 	public String toJson(Object object) {
 		try {
@@ -106,12 +104,12 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * ·´ĞòÁĞ»¯POJO»ò¼òµ¥CollectionÈçList<String>.
+	 * ååºåˆ—åŒ–POJOæˆ–ç®€å•Collectionå¦‚List<String>.
 	 * 
-	 * Èç¹ûJSON×Ö·û´®ÎªNull»ò"null"×Ö·û´®, ·µ»ØNull.
-	 * Èç¹ûJSON×Ö·û´®Îª"[]", ·µ»Ø¿Õ¼¯ºÏ.
+	 * å¦‚æœJSONå­—ç¬¦ä¸²ä¸ºNullæˆ–"null"å­—ç¬¦ä¸², è¿”å›Null.
+	 * å¦‚æœJSONå­—ç¬¦ä¸²ä¸º"[]", è¿”å›ç©ºé›†åˆ.
 	 * 
-	 * ÈçĞè·´ĞòÁĞ»¯¸´ÔÓCollectionÈçList<MyBean>, ÇëÊ¹ÓÃfromJson(String,JavaType)
+	 * å¦‚éœ€ååºåˆ—åŒ–å¤æ‚Collectionå¦‚List<MyBean>, è¯·ä½¿ç”¨fromJson(String,JavaType)
 	 * @see #fromJson(String, JavaType)
 	 */
 	public <T> T fromJson(String jsonString, Class<T> clazz) {
@@ -127,7 +125,7 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * ·´ĞòÁĞ»¯¸´ÔÓCollectionÈçList<Bean>, ÏÈÊ¹ÓÃº¯”µcreateCollectionType¹¹ÔìÀàĞÍ,È»ºóµ÷ÓÃ±¾º¯Êı.
+	 * ååºåˆ—åŒ–å¤æ‚Collectionå¦‚List<Bean>, å…ˆä½¿ç”¨å‡½æ•¸createCollectionTypeæ„é€ ç±»å‹,ç„¶åè°ƒç”¨æœ¬å‡½æ•°.
 	 * @see #createCollectionType(Class, Class...)
 	 */
 	@SuppressWarnings("unchecked")
@@ -144,9 +142,9 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * ˜‹Ôì·ºĞÍµÄCollection TypeÈç:
-	 * ArrayList<MyBean>, Ôòµ÷ÓÃconstructCollectionType(ArrayList.class,MyBean.class)
-	 * HashMap<String,MyBean>, Ôòµ÷ÓÃ(HashMap.class,String.class, MyBean.class)
+	 * æ§‹é€ æ³›å‹çš„Collection Typeå¦‚:
+	 * ArrayList<MyBean>, åˆ™è°ƒç”¨constructCollectionType(ArrayList.class,MyBean.class)
+	 * HashMap<String,MyBean>, åˆ™è°ƒç”¨(HashMap.class,String.class, MyBean.class)
 	 */
 	@SuppressWarnings("deprecation")
 	public JavaType createCollectionType(Class<?> collectionClass, Class<?>... elementClasses) {
@@ -154,7 +152,7 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * ®”JSONÑeÖ»º¬ÓĞBeanµÄ²¿·ÖŒÙĞÔ•r£¬¸üĞÂÒ»‚€ÒÑ´æÔÚBean£¬Ö»¸²ÉwÔ“²¿·ÖµÄŒÙĞÔ.
+	 * ç•¶JSONè£¡åªå«æœ‰Beançš„éƒ¨åˆ†å±¬æ€§æ™‚ï¼Œæ›´æ–°ä¸€å€‹å·²å­˜åœ¨Beanï¼Œåªè¦†è“‹è©²éƒ¨åˆ†çš„å±¬æ€§.
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> T update(String jsonString, T object) {
@@ -169,16 +167,16 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * İ”³öJSONP¸ñÊ½”µ“ş.
+	 * è¼¸å‡ºJSONPæ ¼å¼æ•¸æ“š.
 	 */
 	public String toJsonP(String functionName, Object object) {
 		return toJson(new JSONPObject(functionName, object));
 	}
 
 	/**
-	 * ÔO¶¨ÊÇ·ñÊ¹ÓÃEnumµÄtoStringº¯”µí×xŒ‘Enum,
-	 * éFalse•r•rÊ¹ÓÃEnumµÄname()º¯”µí×xŒ‘Enum, Ä¬ÕJéFalse.
-	 * ×¢Òâ±¾º¯”µÒ»¶¨ÒªÔÚMapper„“½¨áá, ËùÓĞµÄ×xŒ‘„Ó×÷Ö®Ç°Õ{ÓÃ.
+	 * è¨­å®šæ˜¯å¦ä½¿ç”¨Enumçš„toStringå‡½æ•¸ä¾†è®€å¯«Enum,
+	 * ç‚ºFalseæ™‚æ™‚ä½¿ç”¨Enumçš„name()å‡½æ•¸ä¾†è®€å¯«Enum, é»˜èªç‚ºFalse.
+	 * æ³¨æ„æœ¬å‡½æ•¸ä¸€å®šè¦åœ¨Mapperå‰µå»ºå¾Œ, æ‰€æœ‰çš„è®€å¯«å‹•ä½œä¹‹å‰èª¿ç”¨.
 	 */
 	public JsonMapper enableEnumUseToString() {
 		this.enable(SerializationFeature.WRITE_ENUMS_USING_TO_STRING);
@@ -187,8 +185,8 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * Ö§³ÖÊ¹ÓÃJaxbµÄAnnotation£¬Ê¹µÃPOJOÉÏµÄannotation²»ÓÃÓëJacksonñîºÏ¡£
-	 * Ä¬ÈÏ»áÏÈ²éÕÒjaxbµÄannotation£¬Èç¹ûÕÒ²»µ½ÔÙÕÒjacksonµÄ¡£
+	 * æ”¯æŒä½¿ç”¨Jaxbçš„Annotationï¼Œä½¿å¾—POJOä¸Šçš„annotationä¸ç”¨ä¸Jacksonè€¦åˆã€‚
+	 * é»˜è®¤ä¼šå…ˆæŸ¥æ‰¾jaxbçš„annotationï¼Œå¦‚æœæ‰¾ä¸åˆ°å†æ‰¾jacksonçš„ã€‚
 	 */
 	public JsonMapper enableJaxbAnnotation() {
 		JaxbAnnotationModule module = new JaxbAnnotationModule();
@@ -197,8 +195,8 @@ public class JsonMapper extends ObjectMapper {
 	}
 
 	/**
-	 * ÔÊĞíµ¥ÒıºÅ
-	 * ÔÊĞí²»´øÒıºÅµÄ×Ö¶ÎÃû³Æ
+	 * å…è®¸å•å¼•å·
+	 * å…è®¸ä¸å¸¦å¼•å·çš„å­—æ®µåç§°
 	 */
 	public JsonMapper enableSimple() {
 		this.configure(Feature.ALLOW_SINGLE_QUOTES, true);
@@ -207,14 +205,14 @@ public class JsonMapper extends ObjectMapper {
 	}
 	
 	/**
-	 * È¡³öMapper×ö½øÒ»²½µÄÉèÖÃ»òÊ¹ÓÃÆäËûĞòÁĞ»¯API.
+	 * å–å‡ºMapperåšè¿›ä¸€æ­¥çš„è®¾ç½®æˆ–ä½¿ç”¨å…¶ä»–åºåˆ—åŒ–API.
 	 */
 	public ObjectMapper getMapper() {
 		return this;
 	}
 
 	/**
-	 * ¶ÔÏó×ª»»ÎªJSON×Ö·û´®
+	 * å¯¹è±¡è½¬æ¢ä¸ºJSONå­—ç¬¦ä¸²
 	 * @param object
 	 * @return
 	 */
@@ -223,7 +221,7 @@ public class JsonMapper extends ObjectMapper {
 	}
 	
 	/**
-	 * JSON×Ö·û´®×ª»»Îª¶ÔÏó
+	 * JSONå­—ç¬¦ä¸²è½¬æ¢ä¸ºå¯¹è±¡
 	 * @param jsonString
 	 * @param clazz
 	 * @return
@@ -233,3 +231,4 @@ public class JsonMapper extends ObjectMapper {
 	}
 	
 }
+

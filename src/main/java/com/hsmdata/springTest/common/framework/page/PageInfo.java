@@ -1,7 +1,5 @@
 package com.hsmdata.springTest.common.framework.page;
 
- 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,17 +7,17 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * @description£º·ÖÒ³ÊµÌåÀà
- * @author£ºchenyj
+ * @descriptionï¼šåˆ†é¡µå®ä½“ç±»
+ * @authorï¼šchenyj
  */
 public class PageInfo<T> {
-	private int pageNo;// µ±Ç°Ò³Âë
-	private int pageSize;// Ã¿Ò³¼ÇÂ¼Êı
-	private int totalRecord;// ×Ü¼ÇÂ¼Êı
-	private List<T> dataList = new ArrayList<T>();// Ã¿Ò³Êı¾İ
-	private int start;// ÆğÊ¼Î»ÖÃ
-	private boolean isLastPage;//ÊÇ·ñÊÇ×îºóÒ»Ò³
-	private Map<String,Object> searchMap;// ²éÑ¯Ìõ¼ş
+	private int pageNo;// å½“å‰é¡µç 
+	private int pageSize;// æ¯é¡µè®°å½•æ•°
+	private int totalRecord;// æ€»è®°å½•æ•°
+	private List<T> dataList = new ArrayList<T>();// æ¯é¡µæ•°æ®
+	private int start;// èµ·å§‹ä½ç½®
+	private boolean isLastPage;//æ˜¯å¦æ˜¯æœ€åä¸€é¡µ
+	private Map<String,Object> searchMap;// æŸ¥è¯¢æ¡ä»¶
 
 	public PageInfo(int pageNo, int pageSize, int totalRecord, Map<String,Object> searchMap) {
 		this.pageNo = pageNo;

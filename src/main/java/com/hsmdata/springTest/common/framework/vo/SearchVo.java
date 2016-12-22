@@ -1,12 +1,10 @@
 package com.hsmdata.springTest.common.framework.vo;
-
  
-
 import java.io.Serializable;
 import java.util.Map;
 
 /**
- * ²éÑ¯²ÎÊıVO
+ * æŸ¥è¯¢å‚æ•°VO
  * 
  * @author chenyj
  * @version 2016-09-18
@@ -16,10 +14,10 @@ public class SearchVo implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private int userId;// ÓÃ»§ID
-	private int pageNo;// µ±Ç°Ò³Âë
-	private int pageSize;// Ã¿Ò³ÏÔÊ¾ÌõÊı
-	private Map<String, String> searchMap;// ²éÑ¯×Ö·û´®
+	private int userId;// ç”¨æˆ·ID
+	private int pageNo;// å½“å‰é¡µç 
+	private int pageSize;// æ¯é¡µæ˜¾ç¤ºæ¡æ•°
+	private Map<String, String> searchMap;// æŸ¥è¯¢å­—ç¬¦ä¸²
 
 	public int getUserId() {
 		return userId;
