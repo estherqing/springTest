@@ -19,7 +19,7 @@ public class AnnotationTest {
 	@Test
 	public void testDictList() {
 		List<DictVo> list = dictMapper.getAllDictList();
-		System.out.println(list);
+		System.out.println(list);		 
 	}
 
 }

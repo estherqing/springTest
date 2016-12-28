@@ -22,6 +22,8 @@ public class DictVo implements Serializable {
     private String dictDesc;//字典类型描述
 
     private Short dictSort;//字典排序 
+    
+    private Integer delFlag;//删除字段
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,6 +33,14 @@ public class DictVo implements Serializable {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Integer getDel() {
+		return delFlag;
+	}
+
+	public void setDel(Integer del) {
+		this.delFlag = del;
 	}
 
 	public String getDictValue() {
