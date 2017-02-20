@@ -11,12 +11,12 @@ public class DictTest {
 
     @SuppressWarnings("unused")
     private static void testAllDictList() {
-        String url = "http://127.0.0.1/priceless/dict/list/all";       
+        String url = "http://localhost:8080/springTest/dict/list/all";       
         HttpClientUtil.sendPost(url, "");
     }
     
     private static void testDictListByDictType() {
-        String url = "http://127.0.0.1/priceless/dict/list/some?dictType=COMPANY";
+        String url = "http://localhost:8080/springTest/dict/list/some?dictType=COMPANY";
         HttpClientUtil.sendHttpsGet(url);
     }
 }

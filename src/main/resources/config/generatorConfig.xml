@@ -73,10 +73,10 @@
         </javaClientGenerator>
 
 
-        <table tableName="t_user" enableCountByExample="false"
+        <table tableName="t_email_log" enableCountByExample="false"
                enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false"
-               domainObjectName="User">
+               domainObjectName="EmailLog">
         </table>
 
 

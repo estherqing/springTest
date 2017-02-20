@@ -1,6 +1,5 @@
 package com.hsmdata.springTest.common.framework.global;
  
-
 public class PropertiesConstant {
 
 	public final static String KEY_LOCAL_URL = "local.url";
@@ -9,120 +8,185 @@ public class PropertiesConstant {
 
 	public final static String KEY_LOGIN_URL = "login.url";
 
-	public final static String UPLOAD_FILE = "upload_file";
+	/** å‘é€é‚®ä»¶çš„è´¦æˆ· */
+	public final static String MAIL_USERNAME = "mail.username";
+
+	/** æ–‡ä»¶ä¸Šä¼ åœ°å€ */
+	public final static String FILE_UPLOAD_PATH = "file_upload_path";
+	/**  å›¾ç‰‡ä¸Šä¼ åœ°å€ */
+	public final static String IMG_UPLOAD_PATH = "img_upload_path";
+	/** urlå‰ç¼€ */
+	public final static String URL_PREFIX = "url_prefix";
+	
+	public static final String UPLOAD_FILE = "file_upload_path";
+	
 
 	public final static String EMAIL_SUFFIX = "email_suffix";
 
-	public static final int SUCCESS = 0;// ³É¹¦
+	public static final int SUCCESS = 0;// æˆåŠŸ
 
-	public static final int FAIL = 1;// Ê§°Ü
+	public static final int FAIL = 1;// å¤±è´¥
 	
-	public static final int DEFAULT_PAGESIZE = 10;// Ä¬ÈÏÃ¿Ò³ÏÔÊ¾ÌõÊı
+	public static final int DEFAULT_PAGESIZE = 10;// é»˜è®¤æ¯é¡µæ˜¾ç¤ºæ¡æ•°
 	
 	/**
-	 * É¾³ı±ê¼Ç£ºÒÑÉ¾³ı
+	 * åˆ é™¤æ ‡è®°ï¼šå·²åˆ é™¤
 	 */
 	public static final int DEL_YES = 0;
 	/**
-	 * É¾³ı±ê¼Ç£ºÎ´É¾³ı
+	 * åˆ é™¤æ ‡è®°ï¼šæœªåˆ é™¤
 	 */
 	public static final int DEL_NO = 1;
 	
 	/**
-	 * ¶¯Ì¬ÀàĞÍ£º»áÒé
+	 * åŠ¨æ€ç±»å‹ï¼šä¼šè®®
 	 */
 	public static final Short DYNAMIC_TYPE_MEETING = 1;
 	/**
-	 * ¶¯Ì¬ÀàĞÍ£ºÅàÑµ
+	 * åŠ¨æ€ç±»å‹ï¼šåŸ¹è®­
 	 */
 	public static final Short DYNAMIC_TYPE_TRAIN = 2;
 	/**
-	 * ¶¯Ì¬ÀàĞÍ£º¼¼ÊõÂÛÌ³
+	 * åŠ¨æ€ç±»å‹ï¼šæŠ€æœ¯è®ºå›
 	 */
 	public static final Short DYNAMIC_TYPE_TECHNIQUE = 3;
-	
+	/**
+	 * åŠ¨æ€ç±»å‹ï¼šåŸ¹è®­å…¬å‘Š
+	 */
+	public static final Short DYNAMIC_TYPE_TRAIN_NOTICE = 4;
 	
 	/**
-	 * µãÔŞÀàĞÍ£º¶¯Ì¬
+	 * åŠ¨æ€å…¬å¼€ï¼šæ˜¯
+	 */
+	public static final Short DYNAMIC_IS_SHOW_NO = 0;
+	/**
+	 * åŠ¨æ€å…¬å¼€ï¼šå¦
+	 */
+	public static final Short DYNAMIC_IS_SHOW_YES = 1;
+	
+	/**
+	 * ç‚¹èµç±»å‹ï¼šåŠ¨æ€
 	 */
 	public static final Short PRAISE_TYPE_DYNAMIC = 1;
 	/**
-	 * µãÔŞÀàĞÍ£ºÁôÑÔ
+	 * ç‚¹èµç±»å‹ï¼šç•™è¨€
 	 */
 	public static final Short PRAISE_TYPE_MESSAGE = 2;
 	/**
-	 * µãÔŞÀàĞÍ£º»Ø¸´
+	 * ç‚¹èµç±»å‹ï¼šå›å¤
 	 */
 	public static final Short PRAISE_TYPE_REPLY = 3;
 	
 	/**
-	 * ÆÀÂÛÀàĞÍ£º¶¯Ì¬
+	 * è¯„è®ºç±»å‹ï¼šåŠ¨æ€
 	 */
 	public static final Short COMMENT_TYPE_DYNAMIC = 1;
 	/**
-	 * ÆÀÂÛÀàĞÍ£ººÏ×÷¹«Ë¾
+	 * è¯„è®ºç±»å‹ï¼šåˆä½œå…¬å¸
 	 */
 	public static final Short COMMENT_TYPE_PARTNER = 2;
 	/**
-	 * ÆÀÂÛÀàĞÍ£ºÅàÑµ
+	 * è¯„è®ºç±»å‹ï¼šåŸ¹è®­
 	 */
 	public static final Short COMMENT_TYPE_TRAIN = 3;
+	/**
+	 * è¯„è®ºç±»å‹ï¼šä¸“å®¶
+	 */
+	public static final Short COMMENT_TYPE_EXPERT = 4;
 	
 	/**
-	 * ¹Ø×¢ÀàĞÍ£º¶¯Ì¬
+	 * å…³æ³¨ç±»å‹ï¼šåŠ¨æ€
 	 */
 	public static final int FOCUS_TYPE_DYNAMIC = 1;
 	/**
-	 * ¹Ø×¢ÀàĞÍ£ººÏ×÷¹«Ë¾
+	 * å…³æ³¨ç±»å‹ï¼šåˆä½œå…¬å¸
 	 */
 	public static final int FOCUS_TYPE_COMPANY = 2;
 	/**
-	 * ¹Ø×¢ÀàĞÍ£ºÅàÑµ»ú¹¹
+	 * å…³æ³¨ç±»å‹ï¼šåŸ¹è®­æœºæ„
 	 */
 	public static final int FOCUS_TYPE_TRAINING = 3;
 	
 	/**
-	 * ÆÀ·ÖÀàĞÍ£º¼¼ÊõÊµÁ¦
+	 * è¯„åˆ†ç±»å‹ï¼šæŠ€æœ¯å®åŠ›
 	 */
 	public static final int SCORE_TYPE_TECH = 1;
 	
 	/**
-	 * ÆÀ·ÖÀàĞÍ£ºÏîÄ¿ÖÊÁ¿
+	 * è¯„åˆ†ç±»å‹ï¼šé¡¹ç›®è´¨é‡
 	 */
 	public static final int SCORE_TYPE_PROJECT = 2;
 	
 	/**
-	 * ÆÀ·ÖÀàĞÍ£º·şÎñÌ¬¶È
+	 * è¯„åˆ†ç±»å‹ï¼šæœåŠ¡æ€åº¦
 	 */
-	public static final int SCORE_TYPE_SERVICE = 3;
+	public static final int SCORE_TYPE_SERVICE = 5;
 	
 	/**
-	 * ÆÀ·ÖÀàĞÍ£º²úÆ·ÖÊÁ¿
+	 * è¯„åˆ†ç±»å‹ï¼šäº§å“è´¨é‡
 	 */
-	public static final int SCORE_TYPE_PRODUCT = 4;
+	public static final int SCORE_TYPE_PRODUCT = 3;
 	
 	/**
-	 * ÆÀ·ÖÀàĞÍ£º¹¤×÷Ğ§ÂÊ
+	 * è¯„åˆ†ç±»å‹ï¼šå·¥ä½œæ•ˆç‡
 	 */
-	public static final int SCORE_TYPE_EFFICIENCY = 5;
+	public static final int SCORE_TYPE_EFFICIENCY = 4;
 	
 	/**
-	 * ÏûÏ¢ÀàĞÍ£ºÆÀÂÛ
+	 * æ¶ˆæ¯ç±»å‹ï¼šè¯„è®º
 	 */
 	public static final Short MESSAGE_TYPE_COMMENT = 1;
 	/**
-	 * ÏûÏ¢ÀàĞÍ£º»Ø¸´
+	 * æ¶ˆæ¯ç±»å‹ï¼šå›å¤
 	 */
 	public static final Short MESSAGE_TYPE_REPLY = 2;
+	/**
+	 * æ¶ˆæ¯ç±»å‹ï¼š@
+	 */
+	public static final Short MESSAGE_TYPE_A = 3;
 	
 	/**
-	 * ÏûÏ¢ÔÄ¶Á×´Ì¬£ºÎ´¶Á
+	 * æ¶ˆæ¯é˜…è¯»çŠ¶æ€ï¼šæœªè¯»
 	 */
 	public static final Short READ_FLAG_NO = 0;
 	/**
-	 * ÏûÏ¢ÔÄ¶Á×´Ì¬£ºÒÑ¶Á
+	 * æ¶ˆæ¯é˜…è¯»çŠ¶æ€ï¼šå·²è¯»
 	 */
 	public static final Short READ_FLAG_YES = 1;
 	
+	/**
+	 * å•ä½ï¼šç™¾äº¿
+	 */
+	public static final String UNIT_BAIYI = "ç™¾äº¿";
+	
+	/**
+	 * å•ä½ï¼šåäº¿
+	 */
+	public static final String UNIT_SHIYI = "åäº¿";
+	
+	/**
+	 * å•ä½ï¼šäº¿
+	 */
+	public static final String UNIT_YI = "äº¿";
+	
+	/**
+	 * å•ä½ï¼šåƒä¸‡
+	 */
+	public static final String UNIT_QIANWAN = "åƒä¸‡";
+	
+	/**
+	 * å•ä½ï¼šç™¾ä¸‡
+	 */
+	public static final String UNIT_BAIWAN = "ç™¾ä¸‡";
+	
+	/**
+	 * å•ä½ï¼šåä¸‡
+	 */
+	public static final String UNIT_SHIWAN = "åä¸‡";
+	
+	/**
+	 * å•ä½ï¼šä¸‡
+	 */
+	public static final String UNIT_WAN = "ä¸‡"; 
 	
 }
