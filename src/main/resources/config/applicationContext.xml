@@ -23,6 +23,7 @@
 				<value>classpath:/config/jdbc.properties</value>
 				<value>classpath*:/config/constant.properties</value>
 				<value>classpath*:/config/mail.properties</value>
+				<value>classpath*:/config/domainUrl.properties</value>
 			</list>
 		</property>
 	</bean>

@@ -2,6 +2,7 @@ package com.hsmdata.springTest.modules.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.hsmdata.springTest.modules.entity.TestModel;
@@ -21,11 +22,14 @@ public class BinderController {
 		return view;
 	}
 
-	@RequestMapping("testClass.do")
+	@RequestMapping(value="testClass.do", produces = "application/json; charset=utf-8")
+	@ResponseBody
 	public ModelAndView test(TestModel model, ModelAndView view) {
 		view.setViewName("test");
 		view.addObject("attr", model.toString());
 		return view;
 	}
+	
+
 
 }

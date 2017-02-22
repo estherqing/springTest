@@ -5,9 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<%System.out.println("==========test.jsp");%>  
 </head>
 <body>
 <h2>test jsp!</h2><br>
-${attr }
+${attr}
+${var}
 </body>
 </html>

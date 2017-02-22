@@ -3,16 +3,16 @@ package com.hsmdata.springTest.modules.entity;
 import java.util.Date;
 
 import org.springframework.format.annotation.DateTimeFormat;
-import org.springframework.format.annotation.NumberFormat; 
+import org.springframework.format.annotation.NumberFormat;
 
 public class TestModel {
 	private int age;
-	@DateTimeFormat(pattern="yyyy-MM-dd") 
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
-	private String name;
+	private String name = "李丽";
 	private boolean good;
 	private long times;
-	@NumberFormat(pattern="#,###.##")
+	@NumberFormat(pattern = "#,###.##")
 	private double salary;
 
 	public int getAge() {
@@ -22,8 +22,9 @@ public class TestModel {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	@DateTimeFormat(pattern="yyyy-MM-dd")  
-	//@JsonFormat(pattern="yyyy-MM-dd")  
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	// @JsonFormat(pattern="yyyy-MM-dd")
 	public Date getBirth() {
 		return birth;
 	}
@@ -55,8 +56,8 @@ public class TestModel {
 	public void setTimes(long times) {
 		this.times = times;
 	}
-	
-	 public double getSalary() {
+
+	public double getSalary() {
 		return salary;
 	}
 
@@ -65,18 +66,18 @@ public class TestModel {
 	}
 
 	@Override
-	    public String toString() {
-	        StringBuilder sb = new StringBuilder();
-	        sb.append(getClass().getSimpleName());
-	        sb.append(" [");
-	        sb.append("Hash = ").append(hashCode());
-	        sb.append(", age=").append(age);
-	        sb.append(", birth=").append(birth);
-	        sb.append(", name=").append(name);
-	        sb.append(", good=").append(good);
-	        sb.append(", times=").append(times); 
-	        sb.append(", salary=").append(salary); 
-	        sb.append("]");
-	        return sb.toString();
-	    }
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getClass().getSimpleName());
+		sb.append(" [");
+		sb.append("Hash = ").append(hashCode());
+		sb.append(", age=").append(age);
+		sb.append(", birth=").append(birth);
+		sb.append(", name=").append(name);
+		sb.append(", good=").append(good);
+		sb.append(", times=").append(times);
+		sb.append(", salary=").append(salary);
+		sb.append("]");
+		return sb.toString();
+	}
 }
