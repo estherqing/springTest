@@ -1,11 +1,18 @@
 package com.hsmdata.springTest.modules.entity;
 
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Properties;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
-public class TestModel {
+public class TestModel implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private int age;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
@@ -14,6 +21,9 @@ public class TestModel {
 	private long times;
 	@NumberFormat(pattern = "#,###.##")
 	private double salary;
+	
+	Properties properties; 
+	
 
 	public int getAge() {
 		return age;
