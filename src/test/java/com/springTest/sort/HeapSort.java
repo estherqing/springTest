@@ -1,15 +1,16 @@
 package com.springTest.sort;
 
 public class HeapSort {
-	public static int[] data;
+	private static int[] data;
 
+	@SuppressWarnings("static-access")
 	HeapSort(int[] data){
-        this.data = data;
+        this.setData(data);
     }
 
 	public void printdata() {
-		for (int i = 0; i < data.length; i++) {
-			System.out.print(data[i] + " ");
+		for (int i = 0; i < getData().length; i++) {
+			System.out.print(getData()[i] + " ");
 		}
 		System.out.println("");
 	}
@@ -25,12 +26,13 @@ public class HeapSort {
 		System.out.println(HeapSort.class.isInstance(t));
 	}
 
+	@SuppressWarnings("static-access")
 	public void swap(int i, int j) {
 		if (i == j)
 			return;
-		this.data[i] = this.data[i] + this.data[j];
-		this.data[j] = this.data[i] - this.data[j];
-		this.data[i] = this.data[i] - this.data[j];
+		this.getData()[i] = this.getData()[i] + this.getData()[j];
+		this.getData()[j] = this.getData()[i] - this.getData()[j];
+		this.getData()[i] = this.getData()[i] - this.getData()[j];
 	}
 
 	public void reconstructionHeap(int lastindex) {
@@ -41,11 +43,11 @@ public class HeapSort {
 				int big = 2 * j + 1;
 				if (big < lastindex) {
 					// 保证右子节点存在
-					if (data[big] < data[big + 1]) {
+					if (getData()[big] < getData()[big + 1]) {
 						big = big + 1;
 					}
 				}
-				if (data[j] < data[big]) {
+				if (getData()[j] < getData()[big]) {
 					swap(j, big);
 					j = big;
 				} else {
@@ -54,13 +56,21 @@ public class HeapSort {
 			}
 		}
 	}
-
+	@SuppressWarnings("static-access")
 	public void heapSort() {
-		for (int i = 0; i < this.data.length; i++) {
-			int tmp = this.data.length - 1 - i;
+		for (int i = 0; i < this.getData().length; i++) {			
+			int tmp = this.getData().length - 1 - i;
 			reconstructionHeap(tmp);
 			swap(0, tmp);
 			printdata();
 		}
+	}
+
+	public static int[] getData() {
+		return data;
+	}
+
+	public static void setData(int[] data) {
+		HeapSort.data = data;
 	}
 }
