@@ -6,6 +6,7 @@ import java.util.Properties;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
+ 
 
 public class TestModel implements Serializable {
 	/**
@@ -24,6 +25,23 @@ public class TestModel implements Serializable {
 	
 	Properties properties; 
 	
+	public TestModel(){}
+     
+	public TestModel(int age, String name) {
+		super();
+		this.age = age;
+		this.name = name;
+	}
+
+	public TestModel(int age, Date birth, String name, boolean good, long times, double salary) {
+		super();
+		this.age = age;
+		this.birth = birth;
+		this.name = name;
+		this.good = good;
+		this.times = times;
+		this.salary = salary;
+	}
 
 	public int getAge() {
 		return age;

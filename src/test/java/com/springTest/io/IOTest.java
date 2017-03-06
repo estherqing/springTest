@@ -48,6 +48,8 @@ public class IOTest {
 			}
 			out = new FileOutputStream(ofile);
 			out.write(100); // 文件中产生ASC码对应的字符
+			String string="hello world2......";
+			out.write(string.getBytes());
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {

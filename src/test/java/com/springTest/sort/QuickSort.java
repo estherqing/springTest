@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.sort;
 
 public class QuickSort {
 	public int[] data;

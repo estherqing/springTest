@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.sort;
 
 public class HeapSort {
 	public static int[] data;

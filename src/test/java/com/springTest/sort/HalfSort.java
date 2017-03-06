@@ -1,4 +1,4 @@
-package com.springTest; 
+package com.springTest.sort; 
 
 public class HalfSort {
 	public static void main(String[] args) {
