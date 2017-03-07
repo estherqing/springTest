@@ -5,7 +5,7 @@ public class LogHandler {
 		System.out.println("Log before method");
 	}
 
-	public synchronized void LogAfter() {
+	public void LogAfter() {
 		System.out.println("Log after method");
 	}
 }

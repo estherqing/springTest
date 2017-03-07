@@ -111,22 +111,17 @@
 	<bean id="timeHandler" class="com.hsmdata.springTest.modules.aop.TimeHandler" />
 	<bean id="logHandler" class="com.hsmdata.springTest.modules.aop.LogHandler" />
 
-	<aop:config><!-- proxy-target-class="false" -->
-		<!-- <aop:aspect id="time" ref="timeHandler" order="1"> <aop:pointcut id="addTime" 
-			expression="execution(* com.hsmdata.springTest.modules.aop.HelloWorld.*(..))" 
-			/> <aop:before method="printTime" pointcut-ref="addTime" /> <aop:after method="printTime" 
-			pointcut-ref="addTime" /> </aop:aspect> -->
-
-		<aop:aspect id="time" ref="timeHandler">
+	<aop:config proxy-target-class="false"> 
+		<aop:aspect id="time" ref="timeHandler" order="1">
 			<aop:pointcut id="addAllMethod"
-				expression="execution(* com.hsmdata.springTest.modules.aop.HelloWorld.*(..))" />
+				expression="execution(* com.hsmdata.springTest.modules.aop.HelloWorld.print*(..))" />
 			<aop:before method="printTime" pointcut-ref="addAllMethod" />
 			<aop:after method="printTime" pointcut-ref="addAllMethod" />
 		</aop:aspect>
 
 		<aop:aspect id="log" ref="logHandler" order="2">
 			<aop:pointcut id="printLog"
-				expression="execution(* com.hsmdata.springTest.modules.aop.HelloWorld.*(..))" />
+				expression="execution(* com.hsmdata.springTest.modules.aop.HelloWorld.do*(..))" />
 			<aop:before method="LogBefore" pointcut-ref="printLog" />
 			<aop:after method="LogAfter" pointcut-ref="printLog" />
 		</aop:aspect>
