@@ -3,26 +3,19 @@ package com.springTest;
 public class Test3 {
 	public static void main(String[] args) {
 		System.out.println(fun(12345678));
-
-		int[] num1 = { 1, 2, 3, 4, 5, 6 };
-		int[] num2 = { 1, 2, 3, 4 };
-		int[] rlt = new int[6];
-
-		int breakLength = 0;
-		for (int i = 0; i < num1.length; i++) {
-			// "num1的第"+(i+1)+"个数和num2的第+(breakLength+1)+"个数相乘"
-			rlt[i] = num1[i] * num2[breakLength];
-			System.out.println("num1的第" + (i + 1) + "个数和num2的第" + (breakLength + 1) + "个数相乘");
-			// 如果num2到尾了，则置0
-			if (breakLength < num2.length - 1) {
-				breakLength++;
-			} else {
-				breakLength = 0;
+		System.out.println("-----------");
+		InnerTest inner = new InnerTest();
+		Test t = inner.get(3);
+		System.out.println(t.getI());
+		System.out.println("-----------");
+		new InnerClass() {
+			public void print() { /// ——————
+				System.out.println(this.getClass().getName() + " Do nothing.");
 			}
-		}
-		for (int i = 0; i < rlt.length; i++) {
-			System.out.println(rlt[i]);
-		}
+		}.print();
+		System.out.println("-----------");
+		System.out.println(Math.round(11.5) + "," + Math.round(-11.5));
+		System.out.println("-----------");
 	}
 
 	public static String fun(int num) {
@@ -32,5 +25,37 @@ public class Test3 {
 		} else {
 			return String.valueOf(num);
 		}
+	}
+}
+
+class Test { // 超类
+
+	private int i;
+
+	public Test(int i) {
+		this.i = i;
+	}
+
+	public int getI() {
+		return i;
+	}
+}
+
+class InnerTest { // 用于内部类的测试
+
+	public Test get(int x) {
+		return new Test(x) { // 创建匿名内部类，调用父类的构造方法
+
+			@Override
+			public int getI() {
+				return super.getI() * 10;
+			}
+		};
+	}
+}
+
+class InnerClass {
+	public void print() {
+		System.out.println(this);
 	}
 }

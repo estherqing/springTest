@@ -1,18 +1,18 @@
 package com.springTest;
 
 
-public class Test extends Thread {
+public class Test1 extends Thread {
     private String sThreadName;
  
     public static void main(String argv[]) {
-        Test h = new Test();
+        Test1 h = new Test1();
         h.go();
     }
  
-    Test() {
+    Test1() {
     }
  
-    Test(String s) {
+    Test1(String s) {
         sThreadName = s;
     }
  
@@ -21,9 +21,9 @@ public class Test extends Thread {
     }
  
     public void go() {
-        Test first = new Test("first");
+        Test1 first = new Test1("first");
         first.start();
-        Test second = new Test("second");
+        Test1 second = new Test1("second");
         second.start();
     }
  
