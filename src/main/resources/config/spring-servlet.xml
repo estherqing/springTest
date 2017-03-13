@@ -112,7 +112,7 @@
 	<bean id="logHandler" class="com.hsmdata.springTest.modules.aop.LogHandler" />
 	<bean id="daoLogAspect" class="com.hsmdata.springTest.modules.aop.DaoLogAspect" />
 
-	<aop:config proxy-target-class="false">
+	<aop:config proxy-target-class="false"> 
 		<aop:aspect id="time" ref="timeHandler" order="1">
 			<!--第一个*指任意返回值，第二个*指以print开头的任意方法 -->
 			<aop:pointcut id="addAllMethod"
@@ -131,7 +131,7 @@
 		<aop:aspect id="aspect" ref="daoLogAspect" order="3">
 			<!--第一个*指任意返回值，第二个*指springTest下面的任意包，第三个*指aop下面的任意的类，第四个*指任意方法 -->
 			<aop:pointcut id="logpointcut"
-				expression="execution(* com.hsmdata.springTest.modules.aop.DaoLogAspect.*(..))" />
+				expression="execution(* com.hsmdata.springTest.modules.aop.HelloWorld.*(..))" />
 			<aop:around method="traceMethod" pointcut-ref="logpointcut" />
 		</aop:aspect>
 	</aop:config>

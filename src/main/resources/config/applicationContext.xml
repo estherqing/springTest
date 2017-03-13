@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>  
-    <beans xmlns="http://www.springframework.org/schema/beans"  
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"  
-    xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"  
-    xmlns:mvc="http://www.springframework.org/schema/mvc"  
-      
-    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
       http://www.springframework.org/schema/context  
       http://www.springframework.org/schema/context/spring-context-3.0.xsd  
@@ -16,7 +16,7 @@
      http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
 
 
-   <!--项目相关的一些常量配置信息-->
+	<!--项目相关的一些常量配置信息 -->
 	<bean id="configurer" class="com.hsmdata.springTest.common.utils.PropertiesUtil">
 		<property name="locations">
 			<list>
@@ -28,17 +28,21 @@
 		</property>
 	</bean>
 
-	<!--Spring环境启动的时候加载这些初始化信息-->
-	<bean class="com.hsmdata.springTest.common.framework.context.CacheContext"></bean>	
+	<!--Spring环境启动的时候加载这些初始化信息 -->
+	<bean class="com.hsmdata.springTest.common.framework.context.CacheContext"></bean>
 
-	<import resource="classpath:/config/springTest-Context.xml"/>
+	<import resource="classpath:/config/springTest-Context.xml" />
 
-	<!--先不加载Controller是为了使事务生效-->
+	<!--先不加载Controller是为了使事务生效 -->
 	<context:component-scan base-package="com.hsmdata.springTest">
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+		<!-- 在Controller这一层加AOP增强 -->
+	<!--  	<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Service" />-->
 	</context:component-scan>
 
-    <!--发送邮件-->
+	<!--发送邮件 -->
 	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="${mail.host}"></property>
 		<property name="javaMailProperties">
@@ -50,5 +54,5 @@
 		<property name="username" value="${mail.username}"></property>
 		<property name="password" value="${mail.password}"></property>
 	</bean>
-	
+
 </beans>

@@ -15,7 +15,8 @@ public class aopTest {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(xmls);
 
 		HelloWorld hw1 = (HelloWorld) ctx.getBean("helloWorldImp1");
-		HelloWorld hw2 = (HelloWorld) ctx.getBean("helloWorldImp2");
+		HelloWorld hw2 = (HelloWorld) ctx.getBean("helloWorldImp2");		
+		
 		hw1.printHelloWorld();
 		System.out.println();
 		hw1.doPrint();

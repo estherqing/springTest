@@ -51,7 +51,7 @@
 	</filter-mapping>
 
 
-	<listener>
+	<listener><!-- Servlet监听器 -->
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
