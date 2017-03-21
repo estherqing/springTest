@@ -13,7 +13,7 @@ public class MapTest {
 		map.put("a", "aaa");
 		map.put("b", "bbb");
 		map.put("c", "ccc");
-		map.put("d", "ddd");
+		map.put("d", null);
 		Iterator<String> iterator = map.keySet().iterator();
 		while (iterator.hasNext()) {
 			Object key = iterator.next();
@@ -33,6 +33,7 @@ public class MapTest {
 		}
 		System.out.println("-------------------");
 
+		//key和value都不允许为null
 		Hashtable<String, String> tab = new Hashtable<String, String>();
 		tab.put("a", "aaa");
 		tab.put("b", "bbb");
@@ -45,6 +46,7 @@ public class MapTest {
 		}
 		System.out.println("-------------------");
 
+		//有序
 		TreeMap<String, String> tmp = new TreeMap<String, String>();
 		tmp.put("e", "eee");
 		tmp.put("b", "bbb");

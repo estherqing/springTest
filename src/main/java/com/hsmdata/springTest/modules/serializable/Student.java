@@ -2,14 +2,15 @@ package com.hsmdata.springTest.modules.serializable;
 
 import java.io.Serializable;
 
-public class Student implements Serializable {
+public class Student extends School implements Serializable {
 	
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private String name;    
+	private String name;   
+	//public static String name;
     private transient int age;    
     private Course course;          
     public void setCourse(Course course){    

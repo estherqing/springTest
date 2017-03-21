@@ -11,7 +11,7 @@ import com.hsmdata.springTest.modules.serializable.Student;
 public class TestReadObject {
 	public static void main(String[] args) {
 
-		String filePath = "d://obj.txt";
+		String filePath = "obj.txt";
 		ObjectInputStream objInput = null;
 		Student s1 = null, s2 = null;
 		int intVal = 0;
@@ -39,8 +39,10 @@ public class TestReadObject {
 		System.out.println("Info:文件" + filePath + "中读取对象");
 		System.out.println(s1);
 		System.out.println(s1.getCourse());
+		System.out.println(s1.schoolName);
 		System.out.println(s2);
 		System.out.println(s2.getCourse());
+		System.out.println(s2.schoolName);
 		System.out.println(intVal);
 	}
 }
