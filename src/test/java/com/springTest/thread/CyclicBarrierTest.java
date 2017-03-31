@@ -21,10 +21,11 @@ public class CyclicBarrierTest {
 		executor.shutdown();
 
 		barrier.reset();
-		barrier = new CyclicBarrier(2);
-		ExecutorService executor2 = Executors.newFixedThreadPool(2);
+		barrier = new CyclicBarrier(3);
+		ExecutorService executor2 = Executors.newFixedThreadPool(3);
 		executor2.submit(new Thread(new Runner(barrier, "4号选手")));
 		executor2.submit(new Thread(new Runner(barrier, "5号选手")));
+		executor2.submit(new Thread(new Runner(barrier, "6号选手")));
 		executor2.shutdown();
 	}
 }
