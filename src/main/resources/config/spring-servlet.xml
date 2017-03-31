@@ -97,21 +97,19 @@
 			expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 
-	<!-- 启用CGliB ,主要是对AOP的支持 -->
-	<!-- <aop:aspectj-autoproxy proxy-target-class="true" /> -->
+	<!-- 启用CGliB(code generation library),代理类为类，不实现接口 -->
+	<aop:aspectj-autoproxy proxy-target-class="false" /> 	
+	<bean id="hello" class="com.hsmdata.springTest.modules.cglib.Hello"/>
+	<bean id="helloAspect" class="com.hsmdata.springTest.modules.cglib.MethodAop"/>
 
-	<bean id="helloWorldImp1" autowire="byName" scope="singleton"
-		class="com.hsmdata.springTest.modules.aop.HelloWorldImp1">
-		<!-- <property name="test"> -->
-		<!-- inner bean -->
-		<!-- <bean scope="prototype" class="com.hsmdata.springTest.modules.aop.HelloWorldImp2"></bean> 
-			</property> -->
-	</bean>
+	<!-- 以下采用JDK代理 -->
+	<bean id="helloWorldImp1" class="com.hsmdata.springTest.modules.aop.HelloWorldImp1" />  
 	<bean id="helloWorldImp2" class="com.hsmdata.springTest.modules.aop.HelloWorldImp2" />
 	<bean id="timeHandler" class="com.hsmdata.springTest.modules.aop.TimeHandler" />
 	<bean id="logHandler" class="com.hsmdata.springTest.modules.aop.LogHandler" />
 	<bean id="daoLogAspect" class="com.hsmdata.springTest.modules.aop.DaoLogAspect" />
-
+	
+	<!-- 代理类实现了接口 -->
 	<aop:config proxy-target-class="false"> 
 		<aop:aspect id="time" ref="timeHandler" order="1">
 			<!--第一个*指任意返回值，第二个*指以print开头的任意方法 -->
@@ -142,14 +140,9 @@
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
 		<property name="suffix" value=".jsp"></property>
 	</bean>
-	<!-- 文件上传注解 -->
-	<!--<bean id="multipartResolver" -->
-	<!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver"> -->
-	<!--&lt;!&ndash; max upload size in bytes &ndash;&gt; -->
-	<!--<property name="maxUploadSize" value="209715200" /> &lt;!&ndash; 20MB 
-		&ndash;&gt; -->
-	<!--&lt;!&ndash; max size of file in memory (in bytes) &ndash;&gt; -->
-	<!--<property name="maxInMemorySize" value="209715200" /> &lt;!&ndash; 1MB 
-		&ndash;&gt; -->
-	<!--</bean> -->
+	<!-- 文件上传注解: max upload size in bytes ;   max size of file in memory (in bytes)  -->
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">	
+		<property name="maxUploadSize" value="209715200" />  
+		<property name="maxInMemorySize" value="209715200" /> 
+	</bean>
 </beans>
