@@ -12,7 +12,7 @@ public class TestModel implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 123456L;
 	
 	private int age;
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
