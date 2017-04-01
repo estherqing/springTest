@@ -8,7 +8,7 @@ import org.springframework.core.ResolvableType;
 public class StudyTest {
 
 	public static void main(String[] args) {
-	   BeanFactory beanFactory=new BeanFactory() {
+	   new BeanFactory() {
 		
 		@Override
 		public boolean isTypeMatch(String name, Class<?> typeToMatch) throws NoSuchBeanDefinitionException {

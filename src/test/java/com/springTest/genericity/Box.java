@@ -1,7 +1,5 @@
 package com.springTest.genericity;
 
-import java.util.Arrays;
-
 public class Box<T> {
 	// T stands for "Type"
 	private T t;

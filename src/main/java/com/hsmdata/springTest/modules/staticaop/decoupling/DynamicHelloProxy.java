@@ -34,7 +34,7 @@ public class DynamicHelloProxy implements InvocationHandler {
 		Object result = null;
 		try {
 			// 反射得到操作者的实例
-			Class clazz = this.proxy.getClass();
+			Class<? extends Object> clazz = this.proxy.getClass();
 			// 1:a) 反射得到操作者的Start方法
 			Method start = clazz.getDeclaredMethod("start", new Class[] { Method.class });
 			// 1:b) 反射执行start方法

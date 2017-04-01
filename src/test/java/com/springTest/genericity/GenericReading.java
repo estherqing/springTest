@@ -33,6 +33,7 @@ public class GenericReading {
 		Reader<Fruit> fruitReader = new Reader<Fruit>();
 		// Errors: List<Fruit> cannot be applied to List<Apple>.
 		Fruit f = fruitReader.readExact(apples);
+		System.out.println(f);
 	}
 
 	static <T> void writeExact(List<T> list, T item) {
@@ -68,6 +69,7 @@ public class GenericReading {
 		flist.add(null); // Legal but uninteresting
 		// We Know that it returns at least Fruit:
 		Fruit f = flist.get(0);
+		System.out.println(f);
 	}
 }
 

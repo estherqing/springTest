@@ -10,6 +10,8 @@ import java.io.Serializable;
 
 public class OrientationTest {
 
+	private static ObjectInputStream inputStream;
+
 	public static void main(String[] args) {
 		Orientaion original = Orientaion.HORIZOTAL;
 		try {
@@ -17,7 +19,7 @@ public class OrientationTest {
 			outputStream.writeObject(original);
 			outputStream.close();
 
-			ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream("orientation.txt"));
+			inputStream = new ObjectInputStream(new FileInputStream("orientation.txt"));
 			try {
 				Orientaion saved = (Orientaion) inputStream.readObject();
 				if (saved == Orientaion.HORIZOTAL) {
