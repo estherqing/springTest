@@ -87,21 +87,18 @@
 		</mvc:interceptor>
 	</mvc:interceptors>
 
-	<!-- 扫描业务组件,让spring不扫描带有@Service注解的类(留在root-context.xml中扫描@Service注解的类),防止事务失效 -->
+	<!-- 扫描业务组件,只扫描Controller组件，其他的交给spring容器管理，让spring不扫描带有@Service注解的类(留在root-context.xml中扫描@Service注解的类),防止事务失效 -->
 	<context:component-scan base-package="com.hsmdata.springTest">
-		<context:include-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Service" />
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Repository" />
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" />
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 
 	<!-- 启用CGliB(code generation library),代理类为类，不实现接口 -->
 	<aop:aspectj-autoproxy proxy-target-class="false" /> 	
 	<bean id="hello" class="com.hsmdata.springTest.modules.cglib.Hello"/>
 	<bean id="helloAspect" class="com.hsmdata.springTest.modules.cglib.MethodAop"/>
-
+ 
 	<!-- 以下采用JDK代理 -->
 	<bean id="helloWorldImp1" class="com.hsmdata.springTest.modules.aop.HelloWorldImp1" />  
 	<bean id="helloWorldImp2" class="com.hsmdata.springTest.modules.aop.HelloWorldImp2" />

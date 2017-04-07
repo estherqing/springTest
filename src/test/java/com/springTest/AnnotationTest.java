@@ -4,13 +4,12 @@ import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.aop.support.AopUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.hsmdata.springTest.modules.aop.HelloWorld;
-import com.hsmdata.springTest.modules.aop.HelloWorldImp1;
-import com.hsmdata.springTest.modules.aop.HelloWorldImp2;
+import com.hsmdata.springTest.modules.cglib.Hello;
 import com.hsmdata.springTest.modules.mapper.DictMapper;
 import com.hsmdata.springTest.modules.vo.DictVo;
 
@@ -19,24 +18,21 @@ import com.hsmdata.springTest.modules.vo.DictVo;
 public class AnnotationTest {
 	@Autowired
 	private DictMapper dictMapper;
+	@Autowired
+	private Hello hello;
+	
+	
+	@Test
+	public void sayHello(){
+		hello.sayHello("esther");
+		System.out.println("isJdkDynamicProxy:" + AopUtils.isJdkDynamicProxy(hello));
+		System.out.println("isCglibProxy:" + AopUtils.isCglibProxy(hello));
+	}
 
 	@Test
 	public void testDictList() {
 		List<DictVo> list = dictMapper.getAllDictList();
 		System.out.println(list);		 
-	}
-
-	@Test
-	public void test() {
-		HelloWorld hw1 = new HelloWorldImp1();
-		HelloWorld hw2 = new HelloWorldImp2();
-		hw1.printHelloWorld();
-		System.out.println();
-		hw1.doPrint();
-
-		System.out.println();
-		hw2.printHelloWorld();
-		System.out.println();
-		hw2.doPrint();
-	}
+	} 
+	 
 }

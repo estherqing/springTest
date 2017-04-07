@@ -1,56 +1,64 @@
 package com.hsmdata.springTest.modules.entity;
 
-
 import java.util.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class Employee
-{
-   private String name;
-   private double salary;
-   @DateTimeFormat(pattern = "yyyy-MM-dd")
-   @JsonFormat(pattern = "yyyy-MM-dd")
-   private Date hireDay;
+public class Employee {
+	private String name;
+	private double salary;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@JsonFormat(pattern = "yyyy-MM-dd")
+	private Date hireDay;
 
-   public Employee()
-   {
-   }
+	public Employee() {
+	}
+	
+	public Employee(String name,double salary){
+		this.name=name;
+		this.salary=salary;
+		this.hireDay=new Date();
+	}
 
-   public Employee(String n, double s, int year, int month, int day)
-   {
-      name = n;
-      salary = s;
-      GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
-      hireDay = calendar.getTime();
-   }
+	public Employee(String n, double s, int year, int month, int day) {
+		name = n;
+		salary = s;
+		GregorianCalendar calendar = new GregorianCalendar(year, month - 1, day);
+		hireDay = calendar.getTime();
+	}
 
-   public String getName()
-   {
-      return name;
-   }
+	public String getName() {
+		return name;
+	}
 
-   public double getSalary()
-   {
-      return salary;
-   }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-   public Date getHireDay()
-   {
-      return hireDay;
-   }
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
 
-   public void raiseSalary(double byPercent)
-   {
-      double raise = salary * byPercent / 100;
-      salary += raise;
-   }
+	public void setHireDay(Date hireDay) {
+		this.hireDay = hireDay;
+	}
 
-   public String toString()
-   {
-      return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay
-            + "]";
-   }
+	public double getSalary() {
+		return salary;
+	}
+
+	public Date getHireDay() {
+		return hireDay;
+	}
+
+	public void raiseSalary(double byPercent) {
+		double raise = salary * byPercent / 100;
+		salary += raise;
+	}
+
+	public String toString() {
+		return getClass().getName() + "[name=" + name + ",salary=" + salary + ",hireDay=" + hireDay + "]";
+	}
 }

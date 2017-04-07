@@ -7,7 +7,7 @@ public class PathTest {
 
 	public static void main(String[] args) {
 		Path path=Paths.get("user.dir");
-		System.out.println(path);
+		System.out.println(path); 
 	}
 
 }
