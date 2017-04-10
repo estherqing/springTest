@@ -46,11 +46,12 @@ public class ThreadLocalTest2 {
 				startTime = System.currentTimeMillis();
 				time.set(startTime);
 				employee = new Employee("jack" + id, 100 + id);
+				map0.set(employee);
 				Thread.sleep(1000);
 				endTime = System.currentTimeMillis();
 			} catch (Exception ex) {
 			}
-			System.out.println(Thread.currentThread().getName() + "(" + time.get() + "," + endTime + "):" + employee);
+			System.out.println(Thread.currentThread().getName() + "(" + time.get() + "," + endTime + "):" + map0.get());
 		}
 	}
 

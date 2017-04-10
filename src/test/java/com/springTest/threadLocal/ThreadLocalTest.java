@@ -35,11 +35,12 @@ public class ThreadLocalTest {
 			for (int i = 0; i < 10; i++) {
 				map.put(i, i + id * 100);
 				try {
+					map0.set(map);
 					Thread.sleep(100);
 				} catch (Exception ex) {
 				}
 			}
-			System.out.println(Thread.currentThread().getName() + ':' + map);
+			System.out.println(Thread.currentThread().getName() + ':' + map0.get());
 		}
 	}
 
