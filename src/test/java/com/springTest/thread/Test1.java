@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.thread;
 
 
 public class Test1 extends Thread {

@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.basic;
 
 public class Agg {
 	public static void main(String argv[]) {

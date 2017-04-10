@@ -8,7 +8,7 @@ import java.io.FileOutputStream;
 
 /**
  * 
- * @ClassName: FastCopyFileTest 
+ * @ClassName: FastCopyFileTest
  * @Description: 如何快速复制1G的大文件
  * @author esther
  * @date 2017年3月21日 下午4:41:38
@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 public class FastCopyFileTest {
 	public static void main(String[] args) throws Exception {
 
-		getInputStream("user.txt", "to.txt");
+		getInputStream("user2.txt", "to.txt");
 
 	}
 
@@ -25,11 +25,10 @@ public class FastCopyFileTest {
 
 		File file = new File(pathName);
 
-		if (!file.exists())
-
+		if (!file.exists()) {
+			file.createNewFile();
 			throw new RuntimeException("文件不存在呀！");
-
-		else {
+		} else {
 
 			getCopy(copyName, new BufferedInputStream(new FileInputStream(file)));
 

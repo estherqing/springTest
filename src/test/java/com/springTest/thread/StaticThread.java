@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.thread;
 
 import java.util.ArrayList;
 import java.util.List;

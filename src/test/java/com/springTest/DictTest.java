@@ -17,7 +17,7 @@ public class DictTest {
     }
     
     private static void testDictListByDictType() {
-        String url = "http://localhost:8080/springTest/dict/list/some?dictType=COMPANY";
+        String url = "http://localhost:8080/springTest/dict/list/some?dictType=1";
         HttpClientUtil.sendHttpsGet(url);
     }
 }

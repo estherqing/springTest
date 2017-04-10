@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.basic;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

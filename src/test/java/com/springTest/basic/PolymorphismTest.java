@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.basic;
  
 
 public class PolymorphismTest {

@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.basic;
 /**
  * 对象的初始化顺序：
  * （1）类加载之后，按从上到下（从父类到子类）执行被static修饰的语句；

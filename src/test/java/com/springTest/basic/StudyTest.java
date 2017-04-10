@@ -1,4 +1,4 @@
-package com.springTest;
+package com.springTest.basic;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.BeanFactory;
