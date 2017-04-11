@@ -21,6 +21,7 @@ public class SoftReferenceTest {
 		}
 		System.out.println(people[2].get());
 		System.out.println(people[4].get());
+  
 		// 通知系统进行垃圾回收
 		System.gc();
 		System.runFinalization();
@@ -30,6 +31,7 @@ public class SoftReferenceTest {
 	}
 
 }
+
 class Person {
 	String name;
 	int age;

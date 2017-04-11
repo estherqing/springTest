@@ -4,7 +4,7 @@ public class StrongReferenceTest {
 
 	public static void main(String[] args) {
 		
-		Person2[] people=new Person2[100];
+		Person2[] people=new Person2[100000];
 		for(int i=0;i<people.length;i++){
 			people[i]=new Person2("name"+i, (i+1)*4%100);
 		}

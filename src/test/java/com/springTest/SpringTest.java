@@ -1,12 +1,14 @@
 package com.springTest;
 
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
-
-public class SpringTest {
+public class SpringTest extends Thread {
 
 	public static void main(String[] args) {
-		new StandardServletMultipartResolver();
-
+		try {
+			sleep(1000); 
+		} catch (InterruptedException e) { 
+			e.printStackTrace();
+		}
+		 System.out.println("Hello World!");
 	}
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
 }
