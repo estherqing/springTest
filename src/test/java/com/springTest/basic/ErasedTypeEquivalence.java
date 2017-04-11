@@ -3,7 +3,11 @@ package com.springTest.basic;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-
+/**
+ * 类型擦除
+ * @author Esther
+ *
+ */
 public class ErasedTypeEquivalence {
 
 	@SuppressWarnings("rawtypes")
