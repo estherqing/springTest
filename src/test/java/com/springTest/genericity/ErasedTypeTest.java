@@ -1,4 +1,4 @@
-package com.springTest.basic;
+package com.springTest.genericity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +9,7 @@ public class ErasedTypeTest {
 		Node<Integer> n = mn; // A raw type - compiler throws an unchecked
 								// warning
 		n.setData(2); // Causes a ClassCastException to be thrown.
-		Integer x = (Integer) mn.data;
+		Integer x = mn.data;
 		System.out.println(x);
 
 		List<String> ls = new ArrayList<>();

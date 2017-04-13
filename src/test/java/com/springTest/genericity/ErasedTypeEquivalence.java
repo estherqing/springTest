@@ -1,4 +1,4 @@
-package com.springTest.basic;
+package com.springTest.genericity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

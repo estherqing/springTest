@@ -10,9 +10,9 @@ public class Util {
     	PairValue<Integer, String> p2 = new PairValue<>(2, "pear");
     	PairValue<Integer, String> p3 = new PairValue<>(2, "pear");
     	boolean same = Util.<Integer, String>compare(p1, p2);
-    	System.out.println(same);
+    	System.out.println(same);// false
     	boolean s=Util.compare(p3, p2);
-    	System.out.println(s);
+    	System.out.println(s);// true
 	}
 }
 class PairValue<K, V> {
