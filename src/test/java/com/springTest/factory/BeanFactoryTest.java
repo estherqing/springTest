@@ -1,13 +1,10 @@
 package com.springTest.factory;
 
+import com.hsmdata.springTest.modules.aop.HelloWorld;
+import org.junit.Assert;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.core.io.ClassPathResource;
-
-import com.hsmdata.springTest.modules.aop.HelloWorld;
-
-import junit.framework.Assert;
-
 public class BeanFactoryTest {
 
 	public static void main(String[] args) {
