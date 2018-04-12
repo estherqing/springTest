@@ -94,8 +94,8 @@
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository" />
 	</context:component-scan>
 
-	<!-- 启用CGliB(code generation library),代理类为类，不实现接口 -->
-	<aop:aspectj-autoproxy proxy-target-class="false" /> 	
+	<!-- 启用CGliB(code generation library),代理类为类，不实现接口; expose-proxy="true"暴露AOP到ThreadLocal，默认为false -->
+	<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true" />
 	<bean id="hello" class="com.hsmdata.springTest.modules.cglib.Hello"/>
 	<bean id="helloAspect" class="com.hsmdata.springTest.modules.cglib.MethodAop"/>
  

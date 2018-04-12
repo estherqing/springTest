@@ -11,7 +11,18 @@
   </resultMap>  
   <sql id="Base_Column_List" >
     id, dict_value, dict_label, dict_type, dict_desc, dict_sort
-  </sql> 
+  </sql>
+  <insert id="insert" parameterType="com.hsmdata.springTest.modules.entity.Dict" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into t_dict(bank_id, bank_code, zone_code,
+    gate_class, is_valid, create_time,
+    modify_time, push_id)
+    values (#{bankId,jdbcType=BIGINT}, #{bankCode,jdbcType=VARCHAR}, #{zoneCode,jdbcType=VARCHAR},
+    #{gateClass,jdbcType=VARCHAR}, #{isValid,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP},
+    #{modifyTime,jdbcType=TIMESTAMP}, #{pushId,jdbcType=INTEGER})
+  </insert>
   <select id="get" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />

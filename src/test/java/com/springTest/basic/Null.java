@@ -6,7 +6,12 @@ public class Null {
         System.out.println("haha");
     }
     public static void main(String[] args) {
-       // ((Null)null).haha();
+        ((Null)null).haha();
+        try{
+            throw new ClassNotFoundException();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

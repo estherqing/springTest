@@ -93,7 +93,7 @@
     <bean id="transactionManager"  class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <property name="dataSource" ref="dataSource" />
     </bean>
-    <!--通过注解的双方是来实现事务的控制  -->
+    <!--通过注解的双方是来实现声明式事务的控制  -->
     <tx:annotation-driven transaction-manager="transactionManager" />
 
 </beans>

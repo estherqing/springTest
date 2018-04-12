@@ -24,6 +24,8 @@
 				<value>classpath*:/config/constant.properties</value>
 				<value>classpath*:/config/mail.properties</value>
 				<value>classpath*:/config/domainUrl.properties</value>
+				<value>classpath*:/config/redis.properties</value>
+
 			</list>
 		</property>
 	</bean>
@@ -32,6 +34,7 @@
 	<bean class="com.hsmdata.springTest.common.framework.context.CacheContext"></bean>
 
 	<import resource="classpath:/config/springTest-Context.xml" />
+	<import resource="classpath:/config/spring-redis.xml"/>
 
 	<!--先不加载Controller是为了使事务生效 -->
 	<context:component-scan base-package="com.hsmdata.springTest">

@@ -18,7 +18,7 @@ public class SocketClient {
 			PrintWriter printWriter=new PrintWriter(socket.getOutputStream()); 
 			BufferedReader bufferedReader=new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			//发送数据
-			printWriter.println(mString);
+			printWriter.println("客户端输入的数据："+mString);
 			printWriter.flush();
 			//接收数据
 			String line=bufferedReader.readLine();
@@ -26,7 +26,7 @@ public class SocketClient {
 			//关闭资源
 			printWriter.close();
 			bufferedReader.close();
-			socket.close();
+			//socket.close();
 		} catch (UnknownHostException e) {  
 			e.printStackTrace();
 		} catch (IOException e) { 

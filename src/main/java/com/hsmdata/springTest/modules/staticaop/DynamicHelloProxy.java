@@ -17,6 +17,7 @@ public class DynamicHelloProxy implements InvocationHandler {
 
 	public Object bind(Object delegate) {
 		this.delegate = delegate;
+		// 获取代理对象
 		return Proxy.newProxyInstance(this.delegate.getClass().getClassLoader(),
 				this.delegate.getClass().getInterfaces(), this);
 	}
